@@ -6,6 +6,8 @@ public class LaserBeam : MonoBehaviour
 {
     public float width = 0.1f;
 
+    public AudioSource cuttingSound;
+
     public Vector3 StartPosition;
     public Vector3 EndPosition;
     public Vector3 HitNormal;
@@ -64,6 +66,7 @@ public class LaserBeam : MonoBehaviour
             // Check if the player was hit
             if (hit.collider.CompareTag("Player"))
             {
+                cuttingSound.Play();
                 Debug.Log("Player hit by the laser! Restarting scene...");
                 RestartScene();
             }

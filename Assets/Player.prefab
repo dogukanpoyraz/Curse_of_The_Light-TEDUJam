@@ -147,10 +147,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5858571752786010984}
   - component: {fileID: 8028756932749683124}
-  - component: {fileID: 6598376883479979305}
+  - component: {fileID: 1082427076460589064}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6598376883479979305
+--- !u!114 &1082427076460589064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,14 +214,14 @@ MonoBehaviour:
   runSpeed: 12
   crouchSpeed: 3
   dashSpeed: 25
-  dashDuration: 0.2
+  dashDuration: 0.3
   dashCooldown: 1
   jumpPower: 7
-  gravity: 10
+  gravity: 20
   lookSpeed: 2
   lookXLimit: 45
   defaultHeight: 2
-  crouchHeight: 1
+  crouchHeight: 1.2
 --- !u!1 &7556007793228325867
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7054770834443270243}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
