@@ -19,6 +19,7 @@ public class EnemyAiTutorial : MonoBehaviour
     public bool playerInSightRange, playerInAttackRange;
 
     public bool IsAttacking = false;
+    public bool IsDeading = false;
 
     private void Awake()
     {
@@ -88,7 +89,7 @@ public class EnemyAiTutorial : MonoBehaviour
 
     private void AttackPlayer()
     {
-        if (!IsAttacking) // Saldırı devam ederken tekrar saldırmaması için
+        if (!IsAttacking && !IsDeading) // Ölüm veya saldırı durumunda tekrar saldırmaması için
         {
             agent.SetDestination(transform.position);
             transform.LookAt(player);
@@ -97,7 +98,20 @@ public class EnemyAiTutorial : MonoBehaviour
             animator.SetBool("IsAttacking", true); // Saldırı animasyonunu tetikle
             Debug.Log("Saldırı animasyonu başladı!");
 
+            // Oyuncuya hasar verme
+            float damageAnimationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+            Invoke(nameof(DealDamageToPlayer), damageAnimationLength); // Saldırı animasyonunun bitiminden sonra hasar ver
             Invoke(nameof(ResetAttack), 1.5f); // 1.5 saniye sonra saldırıyı tekrar yapabilir
+        }
+    }
+
+    private void DealDamageToPlayer()
+    {
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            playerMovement.health -= 10; // Hasar miktarını buradan ayarlayabilirsiniz
+            Debug.Log("Oyuncuya hasar verildi: " + playerMovement.health);
         }
     }
 
@@ -109,13 +123,39 @@ public class EnemyAiTutorial : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (IsDeading) return; // Eğer zaten ölüyorsa tekrar işlem yapma.
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        health -= damage;
+        Debug.Log(health);
+
+        if (health <= 0)
+        {
+            IsDeading = true;
+            IsAttacking = false; // Eğer saldırıyorsa iptal et.
+
+            // Tüm animasyonları sıfırla ve ölüm animasyonunu başlat.
+            animator.SetBool("IsAttacking", false);
+            animator.SetFloat("Speed", 0);
+            animator.SetTrigger("IsDeading 0");
+
+            // Hareketi durdur ama NavMeshAgent'ı devre dışı bırakma.
+            agent.isStopped = true;
+
+            // Çarpışmaları iptal et ki karakter yere düşsün veya fiziksel etkiler uygulanabilsin.
+            //GetComponent<Collider>().enabled = false;
+
+            // Ölüm animasyonunun süresini al ve o süre kadar Destroy işlemini beklet.
+            float deathAnimationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+            Invoke(nameof(DestroyEnemy), deathAnimationLength);
+        }
     }
+
+
+
 
     private void DestroyEnemy()
     {
+
         Destroy(gameObject);
     }
 

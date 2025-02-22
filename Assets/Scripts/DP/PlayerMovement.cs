@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
     private float lastShiftPressTime = 0f;
     private int shiftPressCount = 0;
 
+    [Header("Karakter Saðlýðý")]
+    public float health = 100f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -52,6 +55,19 @@ public class PlayerMovement : MonoBehaviour
         HandleCameraRotation();
         HandleCrouch();
         HandleDash();
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        // Ölüm animasyonu, oyun sonu vb. iþlemleri burada gerçekleþtirin
+        Debug.Log("Oyuncu öldü!");
+        // Örneðin, buradan oyuncunun nesnesini yok edebilir veya oyun sonu sahnesine geçebilirsiniz.
+        Destroy(gameObject); // Oyuncu nesnesini yok et
     }
 
     void HandleMovement()

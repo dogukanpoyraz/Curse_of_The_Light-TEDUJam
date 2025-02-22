@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - LightMother
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,6 +17,28 @@ TagManager:
   - ground
   - Player
   - 'LightLayer '
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   m_SortingLayers:
   - name: Default
