@@ -46,33 +46,34 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        // Silah sesi çal (ses seviyesi azaltıldı)
+        // Silah sesi çal (varsa)
         if (gunAudio != null && shootSound != null)
         {
             gunAudio.PlayOneShot(shootSound, gunVolume);
         }
 
-        // Kamera'nın baktığı noktaya doğru mermi yönünü belirle
-        Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        // Kamera'nın baktığı noktaya doğru bir Ray gönder
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
 
         Vector3 targetPoint;
         if (Physics.Raycast(ray, out hit, maxShootingDistance))
         {
-            targetPoint = hit.point; // Mermi çarpacağı noktayı belirler
+            targetPoint = hit.point; // Eğer bir nesneye çarptıysa, orası hedef
         }
         else
         {
-            targetPoint = ray.GetPoint(maxShootingDistance); // Eğer bir nesneye çarpmazsa düz ileri gider
+            targetPoint = ray.GetPoint(maxShootingDistance); // Eğer çarpmadıysa ileriye devam et
         }
 
-        // Mermi spawn noktası
+        // Mermiyi oluştur ve yönlendir
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
         // Mermiyi hedefe yönlendir
         Vector3 direction = (targetPoint - firePoint.position).normalized;
-        rb.linearVelocity = direction * bulletSpeed;
+        bullet.transform.rotation = Quaternion.LookRotation(direction); // Mermiyi hedefe yönlendir
+        rb.velocity = direction * bulletSpeed;
 
         Destroy(bullet, 3f); // 3 saniye sonra mermiyi yok et
 
@@ -86,4 +87,5 @@ public class GunController : MonoBehaviour
             Destroy(tracer, tracerLifetime);
         }
     }
+
 }
