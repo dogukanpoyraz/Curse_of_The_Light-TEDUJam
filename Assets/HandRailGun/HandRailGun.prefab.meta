@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 24afaab28ebbf8e40b8a6956429b0359
+timeCreated: 1459693413
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59877
+  packageName: Hand RailGun
+  packageVersion: 1.0
+  assetPath: Assets/HandRailGun/HandRailGun.prefab
+  uploadId: 112672

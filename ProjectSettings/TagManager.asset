@@ -16,6 +16,28 @@ TagManager:
   - ground
   - Player
   - 'LightLayer '
+  - Bullet
+  - Tracer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   m_SortingLayers:
   - name: Default
