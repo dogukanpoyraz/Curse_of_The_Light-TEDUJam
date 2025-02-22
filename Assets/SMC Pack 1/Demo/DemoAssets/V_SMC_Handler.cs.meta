@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: aa1bd229000283d499ae8e933077f7d3
+timeCreated: 1485478455
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79034
+  packageName: 'Simple Modern Crosshairs: Pack 1'
+  packageVersion: 1.1
+  assetPath: Assets/SMC Pack 1/Demo/DemoAssets/V_SMC_Handler.cs
+  uploadId: 231762
