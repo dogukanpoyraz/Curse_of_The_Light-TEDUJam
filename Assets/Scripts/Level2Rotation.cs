@@ -8,12 +8,12 @@ public class Level2Rotation : MonoBehaviour
     [SerializeField] private float orbitRadius = 2f; // Merkezden uzaklýk
     [SerializeField] private bool clockwise = true; // Dönüþ yönü
 
-    private Vector3 _axis = Vector3.forward; // Z ekseni
+    private Vector3 _axis = Vector3.left; // Z ekseni
 
     void Start()
     {
         // Baþlangýç pozisyonunu ayarla
-        transform.position = centerPoint.position + new Vector3(orbitRadius, 0, 0);
+        transform.position = centerPoint.position + new Vector3(0, orbitRadius, 0);
     }
 
     void Update()

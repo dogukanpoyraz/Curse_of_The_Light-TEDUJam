@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - LightMother
   - Enemy
+  - RedVision
+  - GreenVision
   layers:
   - Default
   - TransparentFX
@@ -19,28 +21,6 @@ TagManager:
   - 'LightLayer '
   - Bullet
   - Tracer
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
