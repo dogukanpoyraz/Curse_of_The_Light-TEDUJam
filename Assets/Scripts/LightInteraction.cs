@@ -11,26 +11,28 @@ public class LightInteraction : MonoBehaviour
     private Canvas sliderCanvas;
     private Slider intensitySlider;
     private Collider lightCollider;
-    public GunController gunController;
     private Light currentLight = null;
     private bool isInInteractionZone = false;
-    public float maxLightIntensity = 50f; // Iþýðýn en yüksek intensity deðeri
+    public float maxLightIntensity = 50f;
+
+    // GunController'a referans
+    public GunController gunController;
+
+    // Ammo alma kontrolü
+    private bool hasCollectedAmmo = false;
 
     void Start()
     {
         if (intensitySlider != null)
         {
-            // Slider'ý etkileþime kapalý yap
             intensitySlider.interactable = false;
-
-            // Slider'ýn maximum deðerini ýþýðýn maksimum intensity'sine ayarlýyoruz
             intensitySlider.maxValue = maxLightIntensity;
         }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) // Sað týklama baþlatýldýðýnda
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             RaycastHit hit;
@@ -46,6 +48,8 @@ public class LightInteraction : MonoBehaviour
                 {
                     currentLight = lightComponent;
                     isInInteractionZone = true;
+                    hasCollectedAmmo = false; // Etkileþime girildiðinde sýfýrla
+
                     if (currentLight.intensity <= 0)
                     {
                         sliderCanvas.enabled = false;
@@ -63,15 +67,21 @@ public class LightInteraction : MonoBehaviour
 
         if (Input.GetMouseButton(1) && currentLight != null && isInInteractionZone && sliderCanvas != null && intensitySlider != null)
         {
-            // Iþýðýn intensity'sini azalt
             currentLight.intensity -= intensityDecreaseRate * Time.deltaTime;
 
-            // Intensity'nin negatif olmamasý için sýnýr koy
             if (currentLight.intensity <= 0)
             {
                 currentLight.enabled = false;
                 sliderCanvas.enabled = false;
                 lightCollider.enabled = false;
+
+                // Ammo artýrma iþlemi (sadece bir kez)
+                if (!hasCollectedAmmo && gunController != null && gunController.ammo < gunController.maxAmmo)
+                {
+                    gunController.ammo++;
+                    gunController.bulletCount.text = gunController.ammo.ToString();
+                    hasCollectedAmmo = true; // Ammo alýndý, bir daha artýrmasýn
+                }
             }
             UpdateHealthBar();
         }
@@ -89,7 +99,7 @@ public class LightInteraction : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        if (intensitySlider != null && currentLight != null )
+        if (intensitySlider != null && currentLight != null)
         {
             if (currentLight.intensity <= 0)
             {

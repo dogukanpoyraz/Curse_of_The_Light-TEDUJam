@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour {
     public void PlayGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("DemoScene");
+        SceneManager.LoadScene("Slide");
         Debug.Log("play");
         Cursor.visible = false;
     }
