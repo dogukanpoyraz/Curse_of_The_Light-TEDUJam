@@ -455,7 +455,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3e0b6ef92075f764fb37f713d5e995c0, type: 3}
   - {fileID: 21300000, guid: 9c8775726175e804c92b5b04770b1c79, type: 3}
   - {fileID: 21300000, guid: b9931640074c70344b10a2a2e1c40964, type: 3}
-  - {fileID: 21300000, guid: bb3e8026f46161e4086b44794182a362, type: 3}
   textArray:
   - "Ebedi Isik Kristali\u2026 Sonsuz enerji kaynagi oldugu soylenen bu eser, Isik
     Tanricasi Luxara tarafindan tapinagin derinliklerine saklandi. Onu almak isteyen
@@ -481,10 +480,6 @@ MonoBehaviour:
     misafirleri sonsuz karanliga suruklemek icin bekliyordu. Bazi anlarda isik suzmeleri
     sayesinde silahini doldurup, kendini savunma sansi vardi. Ama yeterli isik olmazsa,
     olum kacinilmazdi."
-  - "Kael, olumcul lazerleri ve tapinagin korkunc yaratiklarini atlatarak Kristal
-    Odasi\u2019na ulasti. Ama Luxara\u2019nin son sinavi baslamisti. Ebedi Isik,
-    ancak dogru secim yapanin olabilirdi\u2026 Kael, bu gucu insanligin gelecegi
-    icin mi kullanacak, yoksa sonsuz isigin efendisi olmayi mi sececekti?"
   fadeTime: 1
   fadefinished: 0
   timer1: 5
