@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: laserBeam
       value: 
       objectReference: {fileID: 7558467908283588325}
+    - target: {fileID: 3314822017276785522, guid: 1b6a61fd1606d614abdb7aeb18bb5941, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 6326916591819694636, guid: 1b6a61fd1606d614abdb7aeb18bb5941, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.64
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7173521182872800481, guid: 1b6a61fd1606d614abdb7aeb18bb5941, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2234367651781802576, guid: 1b6a61fd1606d614abdb7aeb18bb5941, type: 3}
@@ -144,6 +152,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79df67faf508b434fab9d1364b135849, type: 3}
+  m_Script: {fileID: 11500000, guid: c3f1489484f13054eb28a65cd89dd384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

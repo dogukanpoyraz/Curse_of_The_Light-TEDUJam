@@ -19,6 +19,7 @@ public class LaserSource : MonoBehaviour
         {
             laserSound.Play();
         }
+
     }
 
     private void Update()
@@ -34,7 +35,7 @@ public class LaserSource : MonoBehaviour
         }
 
         // Move the object along the Z-axis
-        transform.position += (movingForward ? Vector3.forward : Vector3.back) * speed * Time.deltaTime;
+        transform.position += (movingForward ? Vector3.left : Vector3.right) * speed * Time.deltaTime;
 
         // Update laser beam position and direction
         Vector3 startPosition = sourceTransform.position;

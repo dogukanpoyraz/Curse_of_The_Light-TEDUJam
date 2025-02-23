@@ -36,6 +36,7 @@ namespace SunTemple
         void Start(){
             StartRotation = transform.localEulerAngles ;
 			DoorCollider = GetComponent<BoxCollider> ();
+			captionCanvas.enabled = false;
 
 			if (!DoorCollider) {
 				Debug.LogWarning (this.GetType ().Name + ".cs on " + gameObject.name + "door has no collider", gameObject);
@@ -80,9 +81,7 @@ namespace SunTemple
 				}
 
 
-				if (cursor != null) {
-					CursorHint ();
-				}
+				CursorHint();
 			}
 
 		} 
@@ -97,7 +96,7 @@ namespace SunTemple
 				Ray ray = Cam.ScreenPointToRay (new Vector3 (Screen.width / 2, Screen.height / 2, 0));
 				RaycastHit hit;
 											
-				if (DoorCollider.Raycast(ray, out hit, MaxDistance)){					
+				if (DoorCollider.Raycast(ray, out hit, MaxDistance)){
 					if (IsLocked == false){
 						Activate ();
 					}
@@ -113,9 +112,9 @@ namespace SunTemple
 				RaycastHit hit;
 
 				if (DoorCollider.Raycast (ray, out hit, MaxDistance)) {
-					captionCanvas.enabled = true;
-				} else {
 					captionCanvas.enabled = false;
+				} else {
+					captionCanvas.enabled = true;
 				}
 			}
 		}
@@ -162,6 +161,7 @@ namespace SunTemple
 
         void Open()
         {
+			captionCanvas.enabled = false;
 			DoorCollider.enabled = false;
             DoorClosed = false;
             StartAngle = transform.localEulerAngles.y;
@@ -174,6 +174,7 @@ namespace SunTemple
 
         void Close()
         {
+			//captionCanvas.enabled = true;
 			DoorCollider.enabled = false;
             DoorClosed = true;
             StartAngle = transform.localEulerAngles.y;

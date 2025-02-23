@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -62,12 +63,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void GamePaused()
+    {
+        canMove = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+
+    public void GameResumed()
+    {
+        canMove = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+
     private void Die()
     {
         // Ölüm animasyonu, oyun sonu vb. iþlemleri burada gerçekleþtirin
         Debug.Log("Oyuncu öldü!");
         // Örneðin, buradan oyuncunun nesnesini yok edebilir veya oyun sonu sahnesine geçebilirsiniz.
-        Destroy(gameObject); // Oyuncu nesnesini yok et
+        //Destroy(gameObject); // Oyuncu nesnesini yok et
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void HandleMovement()

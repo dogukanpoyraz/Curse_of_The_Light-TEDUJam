@@ -5,6 +5,7 @@ public class EnemyAiTutorial : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
+    public PlayerMovement playerMove = null;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health;
     public Animator animator;
@@ -107,7 +108,8 @@ public class EnemyAiTutorial : MonoBehaviour
 
     private void DealDamageToPlayer()
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = playerMove;
+        Debug.Log(playerMovement.dashSpeed);
         if (playerMovement != null)
         {
             playerMovement.health -= 10; // Hasar miktarını buradan ayarlayabilirsiniz

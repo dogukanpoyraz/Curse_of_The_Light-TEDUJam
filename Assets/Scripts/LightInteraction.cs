@@ -10,6 +10,8 @@ public class LightInteraction : MonoBehaviour
 
     private Canvas sliderCanvas;
     private Slider intensitySlider;
+    private Collider lightCollider;
+    public GunController gunController;
     private Light currentLight = null;
     private bool isInInteractionZone = false;
     public float maxLightIntensity = 50f; // Iþýðýn en yüksek intensity deðeri
@@ -38,6 +40,7 @@ public class LightInteraction : MonoBehaviour
                 Light lightComponent = hit.transform.GetComponentInChildren<Light>();
                 sliderCanvas = lightComponent.GetComponentInChildren<Canvas>();
                 intensitySlider = sliderCanvas.GetComponentInChildren<Slider>();
+                lightCollider = lightComponent.GetComponent<Collider>();
 
                 if (lightComponent != null && sliderCanvas != null && intensitySlider != null)
                 {
@@ -46,9 +49,11 @@ public class LightInteraction : MonoBehaviour
                     if (currentLight.intensity <= 0)
                     {
                         sliderCanvas.enabled = false;
+                        lightCollider.enabled = false;
                     }
                     else
                     {
+                        lightCollider.enabled = true;
                         sliderCanvas.enabled = true;
                     }
                     UpdateHealthBar();
@@ -66,6 +71,7 @@ public class LightInteraction : MonoBehaviour
             {
                 currentLight.enabled = false;
                 sliderCanvas.enabled = false;
+                lightCollider.enabled = false;
             }
             UpdateHealthBar();
         }
@@ -89,9 +95,11 @@ public class LightInteraction : MonoBehaviour
             {
                 currentLight.enabled = false;
                 sliderCanvas.enabled = false;
+                lightCollider.enabled = false;
             }
             else
             {
+                lightCollider.enabled = true;
                 sliderCanvas.enabled = true;
                 intensitySlider.value = currentLight.intensity;
             }
