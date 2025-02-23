@@ -38,6 +38,7 @@ public class TimerController : MonoBehaviour
     public void EndTimer()
     {
         timerGoing = false;
+        DataManager.finalTime = timeCounter.text;
     }
 
     private IEnumerator UpdateTimer()

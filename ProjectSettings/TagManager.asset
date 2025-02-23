@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - RedVision
   - GreenVision
+  - TriggerBoxEnding
   layers:
   - Default
   - TransparentFX

@@ -13,9 +13,9 @@ public class ColorFilter : MonoBehaviour
 
     private Color targetColor;
     private Color normalColor = new Color(0, 0, 0, 0); // Þeffaf
-    private Color redColor = new Color(1, 0, 0, 0.3f); // Kýrmýzý
-    private Color greenColor = new Color(0, 1, 0, 0.3f); // Yeþil
-    private Color blueColor = new Color(0, 0, 1, 0.3f); // Mavi
+    private Color redColor = new Color(0.5f, 0, 0, 0.3f); // Kýrmýzý
+    private Color greenColor = new Color(0, 0.5f, 0, 0.3f); // Yeþil
+    private Color blueColor = new Color(0, 0, 0.5f, 0.3f); // Mavi
 
     private Coroutine resetCoroutine; // Eski haline dönme süreci
     private bool isEndSoundPlayed = false; // End sesinin çalýp çalmadýðýný takip eder
