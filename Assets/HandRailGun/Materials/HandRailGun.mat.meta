@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: da70aae0f526129428c783ca2be9cedd
+timeCreated: 1459599666
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59877
+  packageName: Hand RailGun
+  packageVersion: 1.0
+  assetPath: Assets/HandRailGun/Materials/HandRailGun.mat
+  uploadId: 112672

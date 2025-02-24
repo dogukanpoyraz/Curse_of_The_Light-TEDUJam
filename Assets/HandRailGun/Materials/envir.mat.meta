@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 175a7a95bcd3365459e9fa51eb627c84
+timeCreated: 1459602070
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 59877
+  packageName: Hand RailGun
+  packageVersion: 1.0
+  assetPath: Assets/HandRailGun/Materials/envir.mat
+  uploadId: 112672
