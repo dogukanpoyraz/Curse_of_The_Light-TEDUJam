@@ -20,7 +20,7 @@ public class PortalOscillates : MonoBehaviour
             timer = 0f; 
         }
 
-        transform.position += (movingForward ? Vector3.forward : Vector3.back) * speed * Time.deltaTime;
+        transform.position += (movingForward ? Vector3.left : Vector3.right) * speed * Time.deltaTime;
 
         Vector3 startPosition = portalTransform.position;
         Vector3 direction = portalTransform.forward;
